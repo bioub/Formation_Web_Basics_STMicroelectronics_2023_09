@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--
+    Un formulaire au même titre qu'un lien, créé une nouvelle requête HTTP
+    quand on le soumet
+  -->
+  <a href="https://www.google.com/">Google</a>
+  <form action="https://www.google.com/">
+    <button>Google</button>
+  </form>
+
+  <!-- la méthode GET va servir pour les formulaires de recherche/filtres/tri -->
+  <form action="https://www.google.com/search" method="get">
+    <input type="text" name="q">
+    <button>Recherche Google</button>
+  </form>
+
+  <!-- la méthode POST sera utiliser pour le reste (inscription, commentaire...)-->
+  <form action="https://httpbin.org/post" method="post">
+    <div>
+      <label for="prenom">Prénom</label>
+      <input type="text" name="firstname" id="prenom">
+    </div>
+
+    <div>
+      <label>
+        Nom
+        <input type="text" name="lastname">
+      </label>
+    </div>
+
+    <div>
+      <input type="text" name="firstname" placeholder="Prénom">
+    </div>
+
+    <div>
+      <input type="text" name="lastname" placeholder="Nom">
+    </div>
+
+    <div>
+      <textarea name="description"></textarea>
+    </div>
+
+    <div>
+      <label>
+        Oui
+        <input type="radio" value="oui" name="choix">
+      </label>
+      <label>
+        Non
+        <input type="radio" value="non" name="choix">
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Rouge
+        <input type="checkbox" value="red" name="couleur">
+      </label>
+      <label>
+        Vert
+        <input type="checkbox" value="vert" name="couleur">
+      </label>
+    </div>
+
+    <div>
+      <select name="pays">
+        <option selected disabled value="">Choisissez votre pays...</option>
+        <option value="fr">France</option>
+        <option value="tn">Tunisie</option>
+      </select>
+    </div>
+
+    <button>Register</button>
+  </form>
+
+  <!-- Préremplir -->
+  <form action="https://httpbin.org/post" method="post">
+    <div>
+      <label for="prenom">Prénom</label>
+      <input type="text" name="firstname" id="prenom" value="Romain">
+    </div>
+
+    <div>
+      <label>
+        Nom
+        <input type="text" name="lastname" value="Bohdanowicz">
+      </label>
+    </div>
+
+    <div>
+      <input type="text" name="firstname" placeholder="Prénom" value="Romain">
+    </div>
+
+    <div>
+      <input type="text" name="lastname" placeholder="Nom" value="Bohdanowicz">
+    </div>
+
+    <div>
+      <textarea name="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora animi est officia aperiam, vitae, consectetur atque, dolorum magni facilis qui vero sequi non facere quibusdam quaerat ratione exercitationem recusandae consequatur.</textarea>
+    </div>
+
+    <div>
+      <label>
+        Oui
+        <input type="radio" value="oui" name="choix">
+      </label>
+      <label>
+        Non
+        <input type="radio" value="non" name="choix" checked>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Rouge
+        <input type="checkbox" value="red" name="couleur" checked>
+      </label>
+      <label>
+        Vert
+        <input type="checkbox" value="vert" name="couleur" checked>
+      </label>
+    </div>
+
+    <div>
+      <select name="pays">
+        <option disabled value="">Choisissez votre pays...</option>
+        <option value="fr">France</option>
+        <option selected value="tn">Tunisie</option>
+      </select>
+    </div>
+
+    <button>Register</button>
+  </form>
+
+  <!-- avec un fichier -->
+  <form action="https://httpbin.org/post" method="post" enctype="multipart/form-data">
+    <input type="file" name="upload">
+    <button>Upload</button>
+  </form>
+</body>
+</html>
