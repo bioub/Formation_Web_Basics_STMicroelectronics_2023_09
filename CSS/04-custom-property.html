@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* Custom Property (= variables CSS) */
+
+    :root {
+      --border-div: 1px solid black;
+    }
+
+    .externe {
+      border: var(--border-div, 2px solid red);
+      color: red;
+    }
+
+    .interne {
+      border: var(--border-div);
+    }
+  </style>
+</head>
+<body>
+  <div class="externe">
+    externe
+    <div class="interne">
+      interne
+    </div>
+  </div>
+</body>
+</html>
