@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    /*
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*
     * {
       border: 1px solid black;
       padding: 5px;
     }
     */
-    /*
+      /*
     li {
       border: 1px solid black;
       padding: 5px;
     } */
-    /*
+      /*
     #list {
       border: 1px solid black;
       padding: 5px;
     }
     */
 
-    /*
+      /*
     .second {
       border: 1px solid black;
       padding: 5px;
     }
     */
 
-    /*
+      /*
     li.second {
       border: 1px solid black;
       padding: 5px;
     }
     */
 
-    /*
+      /*
     li.item.second {
       border: 1px solid black;
       padding: 5px;
     }
     */
 
-    /*
+      /*
     div {
       border: 1px solid black;
       padding: 5px;
@@ -55,99 +55,110 @@
       padding: 5px;
     }*/
 
-    /*
+      /*
     div, p, .item, #list {
       border: 1px solid black;
       padding: 5px;
     }
     */
 
-    /* le ou les balises li dont un ancêtre est div avec la classe second */
-    /* div.second li {
+      /* le ou les balises li dont un ancêtre est div avec la classe second */
+      /* div.second li {
       border: 1px solid black;
       padding: 5px;
     } */
 
-    /* le ou les balises li dont le parent est ul */
-    /* ul > li {
+      /* le ou les balises li dont le parent est ul */
+      /* ul > li {
       border: 1px solid black;
       padding: 5px;
     } */
 
-    /* h2 + p {
+      /* h2 + p {
       border: 1px solid black;
       padding: 5px;
     } */
 
-    /* tous les li sauf le premier (par rapport à un parent donné) */
-    /* li + li {
+      /* tous les li sauf le premier (par rapport à un parent donné) */
+      /* li + li {
 
     } */
 
-    /* h2 ~ p {
+      /* h2 ~ p {
 
     } */
 
-    li:nth-child(2) {
-      border: 1px solid black;
-      padding: 5px;
-    }
+      li:nth-child(2) {
+        border: 1px solid black;
+        padding: 5px;
+      }
 
-    /* ici pas de p, qui est deuxième fils */
-    p:nth-child(2) {
+      /* ici pas de p, qui est deuxième fils */
+      p:nth-child(2) {
+      }
 
-    }
+      /* ici il y a un p, qui est deuxième fils de type p */
+      p:nth-of-type(2) {
+      }
 
-    /* ici il y a un p, qui est deuxième fils de type p */
-    p:nth-of-type(2) {
+      #list li:nth-child(2n + 1) {
+      }
 
-    }
+      li + li {
+      }
 
-    #list li:nth-child(2n+1) {
+      li:not(:first-child) {
+      }
 
-    }
+      a[rel~="external"] {
+      }
 
-    li + li {
+      .item {
+      }
 
-    }
-
-    li:not(:first-child) {
-
-    }
-
-    a[rel~="external"] {
-
-    }
-
-    .item {
-
-    }
-
-    [class~="item"] {
-
-    }
-  </style>
-</head>
-<body>
-  <div>
-    <a rel="external nofollow" href="https://www.google.com"></a>
-    <ul id="list">
-      <li>Item 1</li>
-      <li class="item second">Item 2</li>
-      <li>Item 3</li>
-    </ul>
-  </div>
-  <div class="second">
-    <ol>
-      <li>Item 1</li>
-      <li class="item second">Item 2</li>
-      <li>Item 3</li>
-    </ol>
-  </div>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores sit reprehenderit ab ipsam consectetur natus sequi provident quas aspernatur! Praesentium ex quidem cum modi at, voluptates dicta magnam libero eum!</p>
-  <h2>Titre</h2>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae earum ratione, neque beatae saepe voluptatibus numquam culpa non quia consequuntur sint ducimus magnam expedita mollitia maxime et. Ullam, id eius?</p>
-  <p class="second">Ducimus, veritatis excepturi. Pariatur quos asperiores iusto sapiente harum sit autem at ut corporis dolore nemo numquam, voluptate perspiciatis, enim facere laudantium consequatur obcaecati sint quod cumque vero quidem. Delectus?</p>
-  <p>Recusandae quasi possimus labore quae dolorem consequatur nobis impedit unde doloribus aperiam laudantium dolore in ea accusantium inventore, est repellat iusto corrupti maxime minima nemo? Blanditiis voluptates debitis dolores distinctio.</p>
-</body>
+      [class~="item"] {
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <a rel="external nofollow" href="https://www.google.com"></a>
+      <ul id="list">
+        <li>Item 1</li>
+        <li class="item second">Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </div>
+    <div class="second">
+      <ol>
+        <li>Item 1</li>
+        <li class="item second">Item 2</li>
+        <li>Item 3</li>
+      </ol>
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores sit
+      reprehenderit ab ipsam consectetur natus sequi provident quas aspernatur!
+      Praesentium ex quidem cum modi at, voluptates dicta magnam libero eum!
+    </p>
+    <h2>Titre</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae earum
+      ratione, neque beatae saepe voluptatibus numquam culpa non quia
+      consequuntur sint ducimus magnam expedita mollitia maxime et. Ullam, id
+      eius?
+    </p>
+    <p class="second">
+      Ducimus, veritatis excepturi. Pariatur quos asperiores iusto sapiente
+      harum sit autem at ut corporis dolore nemo numquam, voluptate
+      perspiciatis, enim facere laudantium consequatur obcaecati sint quod
+      cumque vero quidem. Delectus?
+    </p>
+    <p>
+      Recusandae quasi possimus labore quae dolorem consequatur nobis impedit
+      unde doloribus aperiam laudantium dolore in ea accusantium inventore, est
+      repellat iusto corrupti maxime minima nemo? Blanditiis voluptates debitis
+      dolores distinctio.
+    </p>
+  </body>
 </html>
