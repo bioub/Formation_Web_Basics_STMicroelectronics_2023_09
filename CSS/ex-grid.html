@@ -31,6 +31,12 @@
         Placer les éléments header, main et aside sur cette
         grille de sorte à ce que le header occupe toute la première ligne
         */
+        display: grid;
+        grid-template-columns: 30% 1fr;
+        grid-template-rows: 80px auto;
+
+        grid-template-areas: "h h"
+                             "a m";
 
         margin-left: auto;
         margin-right: auto;
@@ -39,6 +45,7 @@
       }
 
       header {
+        grid-area: h;
         position: relative;
         background-color: cornflowerblue;
         padding: 5px;
@@ -71,6 +78,7 @@
       } */
 
       aside {
+        grid-area: a;
         background-color: gold;
       }
 
@@ -85,7 +93,12 @@
       }
 
       main {
+        grid-area: m;
         padding: 5px;
+      }
+
+      .menu-breadcrumb {
+        margin-bottom: 5px;
       }
 
       .menu-breadcrumb ul {
@@ -100,6 +113,13 @@
 
       .menu-breadcrumb li:not(:last-child)::after {
         content: " > ";
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 100px;
+        gap: 5px
       }
 
       /*
