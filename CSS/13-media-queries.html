@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--
+  <style media="print">
+    .screen {
+      display: none;
+    }
+  </style>
+  <style media="screen">
+    .print {
+      display: none;
+    }
+  </style>
+  -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        margin: 1em 0;
+      }
+
+      @media print {
+        .screen {
+          display: none;
+        }
+      }
+
+      @media screen {
+        .print {
+          display: none;
+        }
+      }
+
+      .orientation {
+        background-color: yellow;
+      }
+
+      @media (orientation: portrait) {
+        .orientation {
+          background-color: lightgreen;
+        }
+      }
+
+      :root {
+        --main-color: black;
+        --main-bg: white;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --main-color: white;
+          --main-bg: black;
+        }
+      }
+
+      .theme {
+        color: var(--main-color);
+        background-color: var(--main-bg);
+      }
+
+      .responsive {
+        width: 1000px;
+      }
+
+      @media (max-width: 1000px) {
+        .responsive {
+          width: 800px;
+        }
+      }
+
+      @media (max-width: 800px) {
+        .responsive {
+          width: 600px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .responsive {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box screen">screen</div>
+    <div class="box print">print</div>
+    <div class="box orientation">
+
+    </div>
+    <div class="box theme">
+      theme
+    </div>
+    <div class="box responsive">
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --header-height: 80px;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        margin: 0;
+      }
+
+      .container {
+        /*
+        Exercice 1
+        - si le viewport fait 1000px ou moins, modifier width à 800px
+        - si le viewport fait 800px ou moins, modifier width à 100%
+        et afficher 3 lignes dans l'ordre : header (80px), main (1fr), aside (auto)
+        */
+        display: grid;
+        grid-template-columns: 30% 1fr;
+        grid-template-rows: 80px auto;
+
+        grid-template-areas: "h h"
+                             "a m";
+
+        margin-left: auto;
+        margin-right: auto;
+        width: 1000px;
+        min-height: 100vh;
+      }
+
+      header {
+        grid-area: h;
+        position: relative;
+        background-color: cornflowerblue;
+        padding: 5px;
+      }
+
+      header h1 {
+        margin-top: 0;
+      }
+
+      .menu-login {
+        position: absolute;
+        background-color: green;
+        top: 0;
+        right: 0;
+        padding: 10px;
+      }
+
+      .menu-login a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .menu-login a:not(:last-child)::after {
+        content: " / ";
+      }
+
+      /* .col-container {
+        display: flex;
+        min-height: calc(100vh - var(--header-height));
+      } */
+
+      aside {
+        grid-area: a;
+        background-color: gold;
+      }
+
+      aside a {
+        display: block;
+        background-color: orange;
+        margin: 0.4em 0;
+        padding: 5px;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+      }
+
+      main {
+        grid-area: m;
+        padding: 5px;
+      }
+
+      .menu-breadcrumb {
+        margin-bottom: 5px;
+      }
+
+      .menu-breadcrumb ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+
+      .menu-breadcrumb li {
+        display: inline;
+      }
+
+      .menu-breadcrumb li:not(:last-child)::after {
+        content: " > ";
+      }
+
+      /*
+      Exercice 2
+      - si le viewport fait 600px ou moins, passer à 2 colonnes
+      - si le viewport fait 400px ou moins, passer à 1 colonne
+      */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 100px;
+        gap: 5px
+      }
+
+
+      .gallery .img {
+        display: inline-block;
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Titre</h1>
+        <nav class="menu-login">
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+        </nav>
+      </header>
+      <aside>
+        <nav class="menu-aside">
+          <a href="#">Lien 1</a>
+          <a href="#">Lien 2</a>
+          <a href="#">Lien 3</a>
+        </nav>
+      </aside>
+      <main>
+        <nav class="menu-breadcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Catégorie</a></li>
+            <li><a href="#">Produit</a></li>
+          </ul>
+        </nav>
+        <section class="gallery">
+          <div class="img">img</div>
+          <div class="img">img</div>
+          <div class="img">img</div>
+          <div class="img">img</div>
+          <div class="img">img</div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
