@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-rows: 200px 1fr;
+        width: 100vw;
+        height: 100vh;
+        border: 3px solid black;
+      }
+
+      .yellow {
+        background-color: lightgoldenrodyellow;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
+
+      .red {
+        background-color: lightcoral;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+
+      .green {
+        background-color: lightgreen;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+
+      .blue {
+        background-color: lightblue;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box yellow"></div>
+      <div class="box red"></div>
+      <div class="box green"></div>
+      <div class="box blue"></div>
+    </div>
+  </body>
+</html>
