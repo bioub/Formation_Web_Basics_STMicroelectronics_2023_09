@@ -40,20 +40,25 @@
       margin-bottom: 10px;
     }
 
-    input[name="firstname"], input[name="lastname"] {
-      width: 137px;
+    .form-fields {
+      display: flex;
+      gap: 4px;
     }
 
+    /* input:not(:last-child), select:not(:last-child) {
+      margin-right: 4px;
+    } */
+
     input[name="day"] {
-      width: 70px;
+      flex: 1;
     }
 
     select[name="month"] {
-      width: 100px;
+      flex: 3;
     }
 
     input[name="year"] {
-      width: 100px;
+      flex: 2;
     }
 
   </style>
@@ -61,14 +66,11 @@
 <body>
   <!--
     Exercice :
-    <!--
-    Exercice :
     Utiliser display: flex sur les <div class="form-fields">
     Utiliser la propriété flex pour répartir l'espace en trop aux champs
     Remettre un marge entre chaque champs
     Respecter à peu les proportions pour la date de naissance
     Tous les champs seront parfaitement alignés à droite du form
-  -->
   -->
   <form class="inscription" action="https://httpbin.org/post" method="post">
     <!-- div.form-row*6>h3+div.form-fields -->
