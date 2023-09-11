@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      margin: auto;
+      text-align: center;
+      line-height: 100px;
+      background-color: yellow;
+      /* transition-property: background-color;
+      transition-duration: 4000ms;
+      transition-timing-function: ease; */
+      /* transition: background-color 400ms ease, transform 2s linear; */
+      transition: all 400ms ease;
+    }
+
+    .box:hover {
+      background-color: blue;
+      transform: scale(1.5);
+    }
+
+    .box:active {
+      background-color: red;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">box</div>
+</body>
+</html>
