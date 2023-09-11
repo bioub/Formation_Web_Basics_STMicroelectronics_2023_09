@@ -29,6 +29,7 @@ const sub = function substract(a, b) {
 
 // arrow functions (ES2015+) (bonne pratique)
 const multiply = (a, b) => a - b;
+multiply(1, 3)
 
 ['Romain', 'Chayma', 'Ludovic'].forEach((name) => {
   console.log(name);
