@@ -13,6 +13,7 @@ const sum = function(a, b) {
   return a + b;
 };
 
+// Bonne pratique privilégier for ou for of à .forEach
 ['Romain', 'Chayma', 'Ludovic'].forEach(function(name) {
   console.log(name);
 });
