@@ -80,3 +80,89 @@ Math.random = originalRandom;
 
 // ici le vrai Math.random :
 console.log(Math.random());
+
+// 2 systèmes permettant de créer des objets
+
+// 1 - Object Literal
+// Use cases :
+// - pour des objets ponctuels (créés une seule fois)
+// - pour des objets multiples, simple à créer et sans méthodes
+
+const coords1 = {
+  x: 1,
+  y: 2,
+};
+
+const coords2 = {
+  x: 4,
+  y: 5,
+};
+console.log(typeof coords1); // object
+console.log(coords1.x); // 1
+coords1.z = 3;
+console.log(coords1.z); // 3
+
+// use case namespace object, exemple
+const MyMath = {
+  sum: (a, b) => a + b,
+  sub: (a, b) => a - b,
+};
+
+console.log(MyMath.sum(1, 2));
+console.log(MyMath.sub(1, 2));
+
+// use case options pattern (named parameters)
+const readline = require('readline');
+readline.createInterface(process.stdin, undefined, undefined, true).close();
+readline.createInterface({
+  input: process.stdin,
+  terminal: true,
+}).close();
+
+// Pourquoi pas object literal pour des multiples objets avec méthodes
+const coordsA = {
+  x: 1,
+  y: 2,
+  compute() {
+    return 'compute, x:' + this.x;
+  }
+};
+
+const coordsB = {
+  x: 4,
+  y: 5,
+  compute() {
+    return 'compute, x:' + this.x;
+  }
+};
+
+console.log(coordsA.compute() === coordsB.compute()); // false (les retours sont différents)
+console.log(coordsA.compute === coordsB.compute); // false (2 fonctions en mémoire)
+console.log(Number.parseInt === parseInt); // true (1 fonction en mémoire)
+
+// 2 - Constructor (fonctions constructeurs)
+// Use cases :
+// - pour des objets multiples, complexe à créer et/ou avec méthodes
+function Contact() {
+  // la pseudo variable this est une référence vers l'objet créé (par le new)
+  this.name = 'Romain';
+  // this.hello = function() {};
+}
+
+Contact.prototype.hello = function() {
+  return `Hello ${this.name}`;
+};
+
+
+const romain = new Contact();
+const chayma = new Contact();
+
+console.log(romain.hello === chayma.hello); // false
+
+
+console.log(typeof romain); // object
+// delete romain.name;
+console.log(romain.name); // vient de l'objet
+console.log(romain.hello()); // vient de Contact.prototype
+console.log(romain.hasOwnProperty('name')); // vient de Object.prototype
+console.log(romain.test); // undefined
