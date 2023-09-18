@@ -19,6 +19,7 @@ function a() {
         console.log(scriptScope);
         console.log(globalScope);
       }
+
     }
 
     c();

@@ -1,7 +1,7 @@
 const names = ['Romain', 'Chayma', 'Ludovic'];
 
 /**
- * Dit bonjour
+ * Dit bonjour (JSdoc)
  * @param {string} name Le prénom
  * @returns Le message
  */
