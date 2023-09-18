@@ -32,14 +32,14 @@ function Jeu(options = {}) {
   // 3 - default avec un OR (si la valeur par defaut est falsy (converti en Boolean vaut false))
   // const min = options.min || 0;
   // 4 - default avec un NULLISH COALESCING operator (ES2020)
-  const min = options.min ?? 0;
-  const max = options.max ?? 100;
+  this.min = options.min ?? 0;
+  this.max = options.max ?? 100;
 
   this.rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
   });
-  this.entierAlea = Random.getRandomInt(min, max);
+  this.entierAlea = Random.getRandomInt(this.min, this.max);
   this.essais = [];
 }
 
@@ -48,7 +48,7 @@ Jeu.prototype.jouer = function jouer() {
     console.log('Vous avez saisi : ' + this.essais.join(' - '));
   }
 
-  this.rl.question('Quel est le nombre ? ', (answer) => {
+  this.rl.question(`Quel est le nombre (entre ${this.min} et ${this.max}) ? `, (answer) => {
     // answer est de type string (à vous le convertir)
     console.log('Vous avez saisi : ' + answer);
 
@@ -74,7 +74,9 @@ Jeu.prototype.jouer = function jouer() {
   });
 }
 
-const game = new Jeu();
+const game = new Jeu({
+  max: 10,
+});
 game.jouer();
 
 // pile d'appels

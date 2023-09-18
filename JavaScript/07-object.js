@@ -143,6 +143,8 @@ console.log(Number.parseInt === parseInt); // true (1 fonction en mémoire)
 // 2 - Constructor (fonctions constructeurs)
 // Use cases :
 // - pour des objets multiples, complexe à créer et/ou avec méthodes
+
+/*
 function Contact() {
   // la pseudo variable this est une référence vers l'objet créé (par le new)
   this.name = 'Romain';
@@ -152,6 +154,19 @@ function Contact() {
 Contact.prototype.hello = function() {
   return `Hello ${this.name}`;
 };
+*/
+
+class Contact {
+  constructor() {
+    // la pseudo variable this est une référence vers l'objet créé (par le new)
+    this.name = 'Romain';
+    // this.hello = function() {};
+  }
+  hello() {
+    return `Hello ${this.name}`;
+  }
+}
+
 
 
 const romain = new Contact();
