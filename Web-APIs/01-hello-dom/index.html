@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DOM</title>
+  <script defer>
+    const inputElt = document.querySelector('#input');
+    const spanElt = document.querySelector('#output');
+
+    inputElt.addEventListener('input', () => {
+      spanElt.innerText = inputElt.value;
+    });
+  </script>
+</head>
+<body>
+  <div>Name : <input id="input"></div>
+  <p>Hello <span id="output"></span> !</p>
+</body>
+</html>

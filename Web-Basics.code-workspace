@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "JavaScript"
+		},
+		{
+			"path": "Web-APIs"
 		}
 	],
 	"settings": {}

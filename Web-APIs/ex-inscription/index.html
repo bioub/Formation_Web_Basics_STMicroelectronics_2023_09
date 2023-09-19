@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h3, a {
+      font-size: 0.8rem;
+      margin-top: 0;
+    }
+
+    h3 {
+      margin-bottom: 4px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    input, select {
+      width: 100%;
+    }
+
+    .inscription {
+      background-color: lightgray;
+      width: 300px;
+      padding: 10px;
+    }
+
+    .form-row {
+      margin-bottom: 10px;
+    }
+
+    input[name="firstname"], input[name="lastname"] {
+      width: 137px;
+    }
+
+    input[name="day"] {
+      width: 70px;
+    }
+
+    select[name="month"] {
+      width: 100px;
+    }
+
+    input[name="year"] {
+      width: 100px;
+    }
+
+  </style>
+</head>
+<body>
+  <!--
+    Exercice :
+    Reproduire la mise en forme de la slide 71 (de HTML.pdf)
+    En utilisant les classes inscription, form-row, form-fields et éventuellement d'autres si besoin
+    Pas besoin d'être au pixel près sur les largeurs et hauteurs
+    Ne pas se préoccuper du @gmail.com pour l'instant
+  -->
+  <form class="inscription" action="https://httpbin.org/post" method="post">
+    <div class="errors"></div>
+    <!-- div.form-row*6>h3+div.form-fields -->
+    <div class="form-row">
+      <h3>Nom</h3>
+      <div class="form-fields">
+        <input type="text" name="firstname" placeholder="Prénom">
+        <input type="text" name="lastname" placeholder="Nom">
+      </div>
+    </div>
+    <div class="form-row">
+      <h3>Nom d'utilisateur</h3>
+      <div class="form-fields">
+        <input type="text" name="username" placeholder="@gmail.com">
+      </div>
+      <a href="#">J'ai déjà un compte</a>
+    </div>
+    <div class="form-row">
+      <h3>Mot de passe</h3>
+      <div class="form-fields">
+        <input type="password" name="password">
+      </div>
+    </div>
+    <div class="form-row">
+      <h3>Confirmez</h3>
+      <div class="form-fields">
+        <input type="password" name="confirm">
+      </div>
+    </div>
+    <div class="form-row">
+      <h3>Date de naissance</h3>
+      <div class="form-fields">
+        <input type="text" name="day">
+        <select name="month">
+          <option selected disabled value="">Mois</option>
+          <option value="01">Janvier</option>
+          <option value="02">Février</option>
+          <option value="03">Mars</option>
+        </select>
+        <input type="text" name="year">
+      </div>
+    </div>
+    <div class="form-row">
+      <h3>Genre</h3>
+      <div class="form-fields">
+        <select name="gender">
+          <option selected disabled value="">Je suis</option>
+          <option value="h">Homme</option>
+          <option value="m">Femme</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <button>Inscription</button>
+    </div>
+  </form>
+  <script>
+    /*
+      Exercice :
+      En vous inspirant du 01-hello-dom
+      Sélectionner la balise dont la classe est errors
+      Sélectionner les 4 champs suivants :
+      - prénom
+      - nom
+      - mot de passe
+      - répéter le mot de passe
+      (vous pouvez ajouter des classes ou des ids si besoin dans le HTML)
+
+      Ecouter l'événement input (comme dans 01-hello) sur ces 4 champs
+
+      Afficher une erreur lors de la saisie dans la balise <div class="errors"></div>
+      - si le prénom est vide
+      - si le nom est vide
+      - si le mot de passe est différent de la répétition
+      */
+
+  </script>
+</body>
+</html>
+
+
