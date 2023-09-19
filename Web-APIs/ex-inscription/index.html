@@ -123,6 +123,38 @@
     </div>
   </form>
   <script>
+    /** @type {HTMLDivElement} */
+    const errorsEl = document.querySelector('.errors');
+
+    /** @type {HTMLInputElement} */
+    const firstnameEl = document.querySelector('input[name="firstname"]');
+
+    /** @type {HTMLInputElement} */
+    const lastnamesEl = document.querySelector('input[name="lastname"]');
+
+    /** @type {HTMLInputElement} */
+    const passwordEl = document.querySelector('input[name="password"]');
+
+    /** @type {HTMLInputElement} */
+    const confirmEl = document.querySelector('input[name="confirm"]');
+
+    firstnameEl.addEventListener('focusout', () => {
+      if (firstnameEl.value === '') {
+        errorsEl.innerText = 'Le prénom est obligatoire'
+      }
+    });
+
+    lastnamesEl.addEventListener('focusout', () => {
+      if (lastnamesEl.value === '') {
+        errorsEl.innerText = 'Le nom est obligatoire'
+      }
+    });
+
+    confirmEl.addEventListener('focusout', () => {
+      if (passwordEl.value !== confirmEl.value) {
+        errorsEl.innerText = 'Le mot de passe doit correspondre à la confirmation'
+      }
+    });
     /*
       Exercice :
       En vous inspirant du 01-hello-dom
