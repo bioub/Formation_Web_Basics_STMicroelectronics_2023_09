@@ -39,6 +39,6 @@ const coords = {x: 1, y: 2};
 const coords3d = {...coords, z: 3}; // SPREAD
 const {z = 0, ...coords2d} = coords3d; // REST
 
-// On s'en sert pour cloner :
+// Le SPREAD On s'en sert pour cloner :
 const cloneArray = [...nbs];
 const cloneObject = {...coords};

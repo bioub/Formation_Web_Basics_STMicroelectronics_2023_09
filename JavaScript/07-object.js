@@ -38,6 +38,11 @@ console.log(Math['pi'.toUpperCase()]);
 const method = 'log';
 console[method]('Hello');
 
+for (const key of Object.keys(process)) {
+  const value = process[key];
+
+}
+
 // On peut aussi modifier un object (un dictionnaire)
 // ATTENTION : mauvaise pratique de modifier des objets qu'on a pas créé
 // ex : les objets du langage (Math..), de la plateforme (document..) ou d'une lib externe (React)
@@ -52,6 +57,8 @@ console.log(Math.sum(1, 2)); // 3
 
 // exemple d'API qui utilise ce vocabulaire
 console.log(Object.isExtensible(Math)); // true
+// Object.preventExtensions(Math)
+// console.log(Object.isExtensible(Math)); // false
 
 // On peut modifier et même supprimer des clés
 // Math.random = () => 0.5;
@@ -113,6 +120,8 @@ console.log(MyMath.sub(1, 2));
 
 // use case options pattern (named parameters)
 const readline = require('readline');
+const fs = require('fs');
+fs.readFileSync('.editorconfig', { encoding: 'utf-8' });
 readline.createInterface(process.stdin, undefined, undefined, true).close();
 readline.createInterface({
   input: process.stdin,
@@ -157,9 +166,9 @@ Contact.prototype.hello = function() {
 */
 
 class Contact {
-  constructor() {
+  constructor(name = 'Romain') {
     // la pseudo variable this est une référence vers l'objet créé (par le new)
-    this.name = 'Romain';
+    this.name = name;
     // this.hello = function() {};
   }
   hello() {
@@ -170,7 +179,7 @@ class Contact {
 
 
 const romain = new Contact();
-const chayma = new Contact();
+const chayma = new Contact('Chayma');
 
 console.log(romain.hello === chayma.hello); // false
 
@@ -181,3 +190,50 @@ console.log(romain.name); // vient de l'objet
 console.log(romain.hello()); // vient de Contact.prototype
 console.log(romain.hasOwnProperty('name')); // vient de Object.prototype
 console.log(romain.test); // undefined
+
+
+// Extension d'objet plus fine depuis ES5
+// romain.speciality = 'JS';
+Object.defineProperty(romain, 'speciality', {
+  value: 'JS',
+  // ces 3 options valent false par défaut
+  // writable: false,
+  // enumerable: false, // ne sort pas si on boucle ou dans le JSON
+  // configurable: false,
+});
+
+console.log(romain.speciality); // JS
+romain.speciality = 'C++'; // Ignoré (toujours JS), ERREUR en mode strict
+console.log(romain.speciality); // JS
+
+// JSON
+// JavaScript Object Notation
+
+const user = {
+  username: 'romain',
+  id: 12,
+}
+
+console.log(JSON.stringify(user)); // {"username": "romain", "id": 12}
+const userFromJSON = JSON.parse('{"username": "romain", "id": 12}');
+console.log(userFromJSON.username); // romain
+
+class User extends Contact {
+  constructor(name, password) {
+    super(name);
+    this.password = password;
+  }
+  // hello() {
+  //   return super.hello() + ', I am a user';
+  // }
+  login() {
+
+  }
+}
+
+const user2 = new User('romain', '123456');
+user2.name // trouve dans l'objet
+user2.password // trouve dans l'objet
+user2.login() // trouve User.prototype
+user2.hello() // trouve Contact.prototype
+user2.hasOwnProperty('test') // trouve Object.prototype
