@@ -8,10 +8,6 @@ function createSpanEl(title) {
   spanEl.className = 'todos-title';
   spanEl.innerText = title;
 
-  spanEl.addEventListener('dblclick', () => {
-    spanEl.replaceWith(createInputEl(title));
-  });
-
   return spanEl;
 }
 
@@ -24,12 +20,6 @@ function createInputEl(title) {
   const inputEl = document.createElement('input');
   inputEl.className = 'todos-title-input';
   inputEl.value = title;
-
-  inputEl.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      inputEl.replaceWith(createSpanEl(inputEl.value));
-    }
-  });
 
   return inputEl;
 }
@@ -60,10 +50,6 @@ function createTodoRow(todo) {
   buttonEl.className = 'todos-remove';
   buttonEl.innerText = '-';
   rowEl.append(buttonEl);
-
-  buttonEl.addEventListener('click', () => {
-    rowEl.remove();
-  });
 
   return rowEl;
   // Exercice 1
