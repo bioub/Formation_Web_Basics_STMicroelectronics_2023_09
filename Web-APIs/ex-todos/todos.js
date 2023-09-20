@@ -1,12 +1,69 @@
+/**
+ * 
+ * @param {string} title 
+ * @returns {HTMLSpanElement}
+ */
+function createSpanEl(title) {
+  const spanEl = document.createElement('span');
+  spanEl.className = 'todos-title';
+  spanEl.innerText = title;
+
+  spanEl.addEventListener('dblclick', () => {
+    spanEl.replaceWith(createInputEl(title));
+  });
+
+  return spanEl;
+}
+
+/**
+ * 
+ * @param {string} title 
+ * @returns {HTMLInputElement}
+ */
+function createInputEl(title) {
+  const inputEl = document.createElement('input');
+  inputEl.className = 'todos-title-input';
+  inputEl.value = title;
+
+  inputEl.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      inputEl.replaceWith(createSpanEl(inputEl.value));
+    }
+  });
+
+  return inputEl;
+}
+
+
+/**
+ * 
+ * @param {object} todo 
+ * @param {number} todo.id 
+ * @param {string} todo.title 
+ * @param {boolean} todo.completed 
+ * @returns {HTMLDivElement}
+ */
 function createTodoRow(todo) {
   const rowEl = document.createElement('div');
   rowEl.className = "todos-item";
   rowEl.dataset.todoId = todo.id;
 
-  const spanEl = document.createElement('span');
-  spanEl.className = 'todos-title';
-  spanEl.innerText = todo.title;
+  const checkboxEl = document.createElement('input');
+  checkboxEl.type = 'checkbox';
+  checkboxEl.className = 'todos-completed';
+  rowEl.append(checkboxEl);
+
+  const spanEl = createSpanEl(todo.title);
   rowEl.append(spanEl);
+
+  const buttonEl = document.createElement('button');
+  buttonEl.className = 'todos-remove';
+  buttonEl.innerText = '-';
+  rowEl.append(buttonEl);
+
+  buttonEl.addEventListener('click', () => {
+    rowEl.remove();
+  });
 
   return rowEl;
   // Exercice 1
