@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        height: 100vh;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        display: flex;
+        margin: auto;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+      /** @type {HTMLDivElement} */
+      const boxEl = document.querySelector('.box');
+      boxEl.addEventListener('click', () => {
+        const r = Math.floor(Math.random() * 256)
+        const g = Math.floor(Math.random() * 256)
+        const b = Math.floor(Math.random() * 256)
+        boxEl.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        const { width, height } = boxEl.getBoundingClientRect();
+        boxEl.style.width = width * 1.1 + 'px';
+        boxEl.style.height = height * 1.1 + 'px';
+      });
+    </script>
+  </body>
+</html>

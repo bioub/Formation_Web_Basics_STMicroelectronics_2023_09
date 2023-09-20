@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <input class="address-value">
+  </div>
+  <div class="address-result">
+    
+  </div>
+  <script>
+    const inputEl = document.querySelector('.address-value');
+    const resultEl = document.querySelector('.address-result');
+
+    inputEl.addEventListener('input', () => {
+      const value = inputEl.value;
+
+      const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(value)}`;
+
+      if (value.length >= 3) {
+        fetch(url)
+          .then((res) => res.json())
+          .then((featureCollection) => {
+            resultEl.innerText = '';
+            for (const feature of featureCollection.features) {
+              const label = feature.properties.label;
+              const [lng, lat] = feature.geometry.coordinates;
+              
+              const paragraphEl = document.createElement('p');
+              paragraphEl.innerText = `Adresse suggérée : ${label}, coordonnées ${lat}, ${lng}`;
+              resultEl.append(paragraphEl);
+            }
+          });
+      }
+      
+    });
+  </script>
+</body>
+</html>

@@ -80,3 +80,21 @@ containerEl.addEventListener('keydown', (event) => {
     target.replaceWith(createSpanEl(target.value));
   }
 });
+
+// Exercice 6
+// Au chargement de la page envoyer une requête GET à l'URL
+// https://jsonplaceholder.typicode.com/todos/
+// Boucler sur le tableau reçu en JSON et afficher
+// les données en appelant createTodoRow
+
+// Exercice 7
+// Au submit du formulaire afficher la bordure
+// de <input type="text" class="todos-value">
+// en rouge si aucune valeur n'a été saisie
+// et ne pas ajouter la ligne
+
+// Exercice 8
+// Ecouter l'événément input sur le champ
+// Stocker la saisie dans le localStorage
+// Au chargement de la page reremplir le champ avec
+// le contenu du localStorage
