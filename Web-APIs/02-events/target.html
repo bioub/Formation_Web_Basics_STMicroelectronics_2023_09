@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        height: 100vh;
+      }
+
+      .externe {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        display: flex;
+        margin: auto;
+      }
+
+      .interne {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="externe">
+      <div class="interne"></div>
+    </div>
+    <script>
+      const externeEl = document.querySelector('.externe');
+      const interneEl = document.querySelector('.interne');
+
+      externeEl.addEventListener('click', (event) => {
+        // target l'élément sur lequel on a cliqué
+        console.log('target', event.target);
+
+        /** @type {HTMLElement} */
+        const target = event.target;
+
+        if (target.className === 'interne') {
+          console.log('Vous avez cliqué sur interne');
+        }
+
+        // currentTarget l'élémenet sur lequel on a écouté (l'appel de addEventListener)
+        console.log('currentTarget', event.currentTarget);
+      });
+    </script>
+  </body>
+</html>

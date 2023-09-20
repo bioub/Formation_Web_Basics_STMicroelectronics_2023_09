@@ -39,3 +39,18 @@ toggleEl.addEventListener('click', () => {
     checkboxEl.checked = toggleEl.checked;
   }
 });
+
+/*
+Exercice 5
+On souhaite déplacer les addEventListener de todos.js dans ce fichier
+Comme les actions concernent des éléments qui n'existent pas au chargement
+de la page (bouton moins, la balise span, la balise input) on va
+écouter les mêmes événements sur l'élément containerEl qui les contient.
+En utilisant event.target, regarder la propriété className
+si la classe est todos-remove au clicl supprimer la balise parent
+si la classe est todos-title au dblclick remplacer la balise input
+si la classe est todos-title-input au keydown et que le code de la touche est Enter
+remplacer la balise span
+Attention vous n'aurez plus accès aux variables inputEl, spanEl, btnDeleteEl
+déplacer vous dans l'arbre en utilisant parentElement, firstElementChild...
+*/

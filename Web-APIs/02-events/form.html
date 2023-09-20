@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        height: 100vh;
+      }
+
+      .externe {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        display: flex;
+        margin: auto;
+      }
+
+      .interne {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="externe">
+      <input class="interne">
+    </form>
+    <script>
+      const externeEl = document.querySelector('.externe');
+      const interneEl = document.querySelector('.interne');
+
+      const eventNames = [
+        // 'submit',
+        // 'reset',
+        // 'beforeinput',
+        // 'input',
+        'focus',
+        'focusin',
+        'blur',
+        'focusout'
+      ];
+
+      for (const eventName of eventNames) {
+        externeEl.addEventListener(eventName, (event) => {
+          // console.log(event);
+          
+          // event.preventDefault();
+          console.log('externe', eventName);
+          // console.log('code/key', event.code, event.key);
+          
+        });
+
+        interneEl.addEventListener(eventName, () => {
+          console.log('interne', eventName);
+        });
+      }
+    </script>
+  </body>
+</html>
