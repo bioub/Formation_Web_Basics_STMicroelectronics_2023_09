@@ -41,6 +41,7 @@ function createTodoRow(todo) {
   const checkboxEl = document.createElement('input');
   checkboxEl.type = 'checkbox';
   checkboxEl.className = 'todos-completed';
+  checkboxEl.checked = todo.completed;
   rowEl.append(checkboxEl);
 
   const spanEl = createSpanEl(todo.title);

@@ -18,6 +18,11 @@ formEl.addEventListener('submit', (event) => {
   // } else if (event.submitter.name === 'plus') {
   //   console.log('click plus');
   // }
+  valueEl.classList.remove('invalid');
+  if (valueEl.value === '') {
+    valueEl.classList.add('invalid');
+    return;
+  }
   
   const itemEl = createTodoRow({
     id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER),
@@ -25,7 +30,7 @@ formEl.addEventListener('submit', (event) => {
     completed: false,
   });
 
-  containerEl.append(itemEl);
+  containerEl.prepend(itemEl);
 });
 
 // Exercice 3
@@ -86,6 +91,14 @@ containerEl.addEventListener('keydown', (event) => {
 // https://jsonplaceholder.typicode.com/todos/
 // Boucler sur le tableau reçu en JSON et afficher
 // les données en appelant createTodoRow
+fetch('https://jsonplaceholder.typicode.com/todos')
+  .then((res) => res.json())
+  .then((todos) => {
+    for (const todo of todos) {
+      const itemEl = createTodoRow(todo);
+      containerEl.append(itemEl);
+    }
+  });
 
 // Exercice 7
 // Au submit du formulaire afficher la bordure
@@ -98,3 +111,10 @@ containerEl.addEventListener('keydown', (event) => {
 // Stocker la saisie dans le localStorage
 // Au chargement de la page reremplir le champ avec
 // le contenu du localStorage
+valueEl.addEventListener('input', () => {
+  localStorage.setItem('new-todo', valueEl.value);
+});
+
+if (localStorage.getItem('new-todo')) {
+  valueEl.value = localStorage.getItem('new-todo');
+}
