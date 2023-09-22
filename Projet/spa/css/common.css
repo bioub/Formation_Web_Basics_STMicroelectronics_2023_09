@@ -11,16 +11,20 @@ body {
   background-color: #fff;
 }
 
+a {
+  color: #03234B;
+}
+
 header {
   display: flex;
   background-color: #03234b;
   padding: 10px;
+  gap: 10px;
 }
 
 header a {
   color: white;
   text-decoration: none;
-  margin-right: 10px;
 }
 
 header a.active {
@@ -29,10 +33,6 @@ header a.active {
 
 main {
   margin: 10px;
-}
-
-a {
-  color: #03234B;
 }
 
 .btn-link {

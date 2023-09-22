@@ -1,7 +1,7 @@
-h3 {
+#filters h3 {
   margin: 0;
 }
 
-.form-row {
+#filters .form-row {
   margin-bottom: 1em;
 }
