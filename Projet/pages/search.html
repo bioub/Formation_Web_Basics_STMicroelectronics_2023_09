@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/search.css" />
+  </head>
+  <body>
+    <header>
+      <a href="home.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="search.html" class="active">Search</a>
+      <a href="about.html">About</a>
+    </header>
+    <main>
+      <form id="filters">
+        <div class="form-row">
+          <h3>Name</h3>
+          <input type="text" name="name" />
+        </div>
+        <div class="form-row">
+          <h3>FM Radio</h3>
+          <label>
+            <input type="radio" name="fmRadio" value="yes" />
+            Yes
+          </label>
+          <label>
+            <input type="radio" name="fmRadio" value="no" />
+            No
+          </label>
+          <label>
+            <input type="radio" name="fmRadio" value="whatever" checked />
+            Whatever
+          </label>
+        </div>
+        <div class="form-row">
+          <h3>Availability</h3>
+          <label>
+            <input type="checkbox" name="availability" value="T-Mobile" />
+            T-Mobile
+          </label>
+          <label>
+            <input type="checkbox" name="availability" value="Verizon" />
+            Verizon
+          </label>
+        </div>
+        <a href="products.html" class="btn-link">Search</a>
+      </form>
+    </main>
+  </body>
+</html>
