@@ -7,38 +7,40 @@ const filters = {
 /** @param {HTMLElement} mainEl */
 function search(mainEl) {
   const template = `
-<div class="form-row">
-  <h3>Name</h3>
-  <input type="text" name="name" />
+<div id="filters">
+  <div class="form-row">
+    <h3>Name</h3>
+    <input type="text" name="name" />
+  </div>
+  <div class="form-row">
+    <h3>FM Radio</h3>
+    <label>
+      <input type="radio" name="fmRadio" value="yes" />
+      Yes
+    </label>
+    <label>
+      <input type="radio" name="fmRadio" value="no" />
+      No
+    </label>
+    <label>
+      <input type="radio" name="fmRadio" value="whatever" checked />
+      Whatever
+    </label>
+  </div>
+  <div class="form-row">
+    <h3>Availability</h3>
+    <label>
+      <input type="checkbox" name="availability" value="T-Mobile" />
+      T-Mobile
+    </label>
+    <label>
+      <input type="checkbox" name="availability" value="Verizon" />
+      Verizon
+    </label>
+  </div>
+  <a href="#/products" class="btn-link">Search</a>
 </div>
-<div class="form-row">
-  <h3>FM Radio</h3>
-  <label>
-    <input type="radio" name="fmRadio" value="yes" />
-    Yes
-  </label>
-  <label>
-    <input type="radio" name="fmRadio" value="no" />
-    No
-  </label>
-  <label>
-    <input type="radio" name="fmRadio" value="whatever" checked />
-    Whatever
-  </label>
-</div>
-<div class="form-row">
-  <h3>Availability</h3>
-  <label>
-    <input type="checkbox" name="availability" value="T-Mobile" />
-    T-Mobile
-  </label>
-  <label>
-    <input type="checkbox" name="availability" value="Verizon" />
-    Verizon
-  </label>
-</div>
-<a href="#/products" class="btn-link">Search</a>
-  `;
+`;
 
   mainEl.innerHTML = template;
 

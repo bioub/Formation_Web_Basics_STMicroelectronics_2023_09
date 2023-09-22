@@ -10,7 +10,7 @@ let productsList = [];
 /** @param {HTMLElement} mainEl */
 function products(mainEl) {
   const template = `
-<table>
+<table id="products">
   <tr>
     <th>ID</th>
     <th>Name</th>

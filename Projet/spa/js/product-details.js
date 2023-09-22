@@ -8,16 +8,18 @@ function productDetails(mainEl) {
   }
 
   const template = `
-<div class="phone-image">
-  <img class="phone" src="${selectedProduct.images[0]}" />
+<div id="product-details">
+  <div class="phone-image">
+    <img class="phone" src="${selectedProduct.images[0]}" />
+  </div>
+  <h1>${selectedProduct.name}</h1>
+  <p>${selectedProduct.description}</p>
+  <ul class="phone-thumbs">
+    ${selectedProduct.images
+      .map((i) => `<li><img class="phone-thumb" src="${i}" /></li>`)
+      .join("")}
+  </ul>
 </div>
-<h1>${selectedProduct.name}</h1>
-<p>${selectedProduct.description}</p>
-<ul class="phone-thumbs">
-  ${selectedProduct.images
-    .map((i) => `<li><img class="phone-thumb" src="${i}" /></li>`)
-    .join("")}
-</ul>
   `;
 
   mainEl.innerHTML = template;
